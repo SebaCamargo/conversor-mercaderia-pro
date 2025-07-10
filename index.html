@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Mercadería Pro</title>
+
+    <!-- PWA Meta Tags -->
+    <meta
+      name="description"
+      content="Aplicación para calcular costos de mercadería entre Argentina y Uruguay"
+    />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Conversor Pro" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- PWA Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/icon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/icon-16x16.png"
+    />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./icons/icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./icons/icon-512x512.png"
+    />
+
+    <!-- PWA Splash Screen -->
+    <link rel="apple-touch-startup-image" href="/icons/icon-512x512.png" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Conversor de Mercadería Pro</h1>
+        <div class="header-controls">
+          <button id="btnCargar" class="btn-secondary">📂 Cargar</button>
+          <button id="btnLimpiar" class="btn-secondary">🗑️ Limpiar</button>
+          <button id="installButton" class="btn-install" style="display: none">
+            📱 Instalar App
+          </button>
+        </div>
+      </header>
+
+      <div class="fila">
+        <div class="bloque">
+          <label>Valor del Peso Argentino (ARS)</label>
+          <input type="number" id="pesoArg" step="any" placeholder="1200" />
+        </div>
+        <div class="bloque">
+          <label>Valor del Dólar (USD)</label>
+          <input type="number" id="dolar" step="any" placeholder="43" />
+        </div>
+      </div>
+
+      <div class="mercaderias-container">
+        <div class="mercaderias-header">
+          <h3>Mercaderías</h3>
+          <button id="btnAgregarMercaderia" class="btn-add">
+            ➕ Agregar Mercadería
+          </button>
+        </div>
+        <div id="mercaderiasList" class="fila">
+          <!-- Las mercaderías se generarán dinámicamente -->
+        </div>
+      </div>
+
+      <div class="costosYResultados">
+        <div class="costos">
+          <h4>Costos Adicionales</h4>
+          <label>Combustible (UYU)</label>
+          <input
+            type="number"
+            id="combustibleUYU"
+            step="any"
+            placeholder="300"
+          />
+          <label>Transporte (UYU)</label>
+          <input
+            type="number"
+            id="transporteUYU"
+            step="any"
+            placeholder="200"
+          />
+          <label>Pasada (ARS)</label>
+          <input type="number" id="pasadaARS" step="any" placeholder="100" />
+          <label>Envío (ARS)</label>
+          <input type="number" id="envioARS" step="any" placeholder="50" />
+          <button id="btnCalcular" class="btn-primary">🧮 Calcular</button>
+        </div>
+        <div class="resultados" id="resultados">
+          <h4>Resultados</h4>
+          <div id="resultadosContent"></div>
+        </div>
+      </div>
+
+      <div class="historial-container">
+        <h4>Historial de Cálculos</h4>
+        <div id="historial" class="historial"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+    <script src="./public/pwa.js"></script>
+  </body>
+</html>
